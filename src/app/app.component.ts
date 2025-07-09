@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'todolist-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'todo-list-management';
+  newValue = 'a';
+  constructor() {}
+
+  onBlaBla() {
+    console.log(this.newValue);
+  }
 }
