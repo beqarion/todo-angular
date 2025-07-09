@@ -1,14 +1,15 @@
 <header>
   <h1>Todo List Management</h1>
 </header>
-<form action="">
-  <input type="text" placeholder="add todo" [(ngModel)]="newValue" name="todoItemName">
-  <button type="button" (click)="onBlaBla()">Submit</button>
+<form (submit)="onBlaBla()">
+  <input type="text" placeholder="add todo" [(ngModel)]="todoItemName" name="todoItemName">
+  <button type="submit">Submit</button>
 </form>
 
 <div class="todo-list">
-  <div class="todo-item">
-    <h2>New item</h2>
+  <div class="todo-item" *ngFor="let item of todoList">
+    <h2>{{item.title }}</h2>
+    <input type="checkbox" (change)="toggleComplete(item)">
   </div>
 </div>
 <footer></footer>

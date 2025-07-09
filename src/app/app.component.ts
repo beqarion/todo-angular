@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TodoItem } from './models/todo.model';
 
 @Component({
   selector: 'todolist-root',
@@ -6,10 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  newValue = 'a';
+  todoItemName = '';
+  todoList: TodoItem[] = [];
+  idCounter = 0;
   constructor() {}
 
   onBlaBla() {
-    console.log(this.newValue);
+    console.log(this.todoItemName);
+    this.todoList.push({
+      id: this.idCounter,
+      title: this.todoItemName,
+      isCompleted: false,
+    });
+  }
+
+  toggleComplete(item: TodoItem) {
+    item.isCompleted = !item.isCompleted;
+    console.log(this.todoList);
   }
 }
